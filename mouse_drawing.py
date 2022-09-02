@@ -14,8 +14,10 @@ def draw_circle(event,x,y,flags,param):
     if event == cv.EVENT_LBUTTONDOWN:
         drawing = True
         ix,iy = x,y
+
     elif event == cv.EVENT_MOUSEMOVE:
         if drawing:
+            # Show the drawing process while mouse pressed and moving
             if drawRectangle:
                 cv.rectangle(img,(ix,iy),(x,y),(0,255,0),-1)
             elif drawCircle:
@@ -25,6 +27,7 @@ def draw_circle(event,x,y,flags,param):
                 cv.circle(img,(x,y),5,(0,0,255),-1)
     elif event == cv.EVENT_LBUTTONUP:
         drawing = False
+        # Final drawing when mouse released
         if drawRectangle:
             cv.rectangle(img,(ix,iy),(x,y),(0,255,0),-1)
         elif drawCircle:
