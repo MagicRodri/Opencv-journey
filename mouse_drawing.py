@@ -19,7 +19,10 @@ def draw_circle(event,x,y,flags,param):
         if drawing:
             # Show the drawing process while mouse pressed and moving
             if drawRectangle:
-                cv.rectangle(img,(ix,iy),(x,y),(0,255,0),-1)
+                # cv.rectangle(img,(ix,iy),(x,y),(0,255,0),-1)
+                cv.line(img,(ix,iy),(ix,y),(0,255,0),1)
+                cv.line(img,(ix,iy),(x,iy),(0,255,0),1)
+                
             elif drawCircle:
                 r = math.sqrt(pow(x-ix,2)+pow(y-iy,2))
                 cv.circle(img,(ix,iy),int(r),(255,0,0),-1)
@@ -29,7 +32,7 @@ def draw_circle(event,x,y,flags,param):
         drawing = False
         # Final drawing when mouse released
         if drawRectangle:
-            cv.rectangle(img,(ix,iy),(x,y),(0,255,0),-1)
+            cv.rectangle(img,(ix,iy),(x,y),(0,255,0),1)
         elif drawCircle:
             r = math.sqrt(pow(x-ix,2)+pow(y-iy,2))
             cv.circle(img,(ix,iy),int(r),(255,0,0),-1)
