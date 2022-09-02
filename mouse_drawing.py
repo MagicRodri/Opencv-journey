@@ -19,7 +19,8 @@ def draw_circle(event,x,y,flags,param):
             if drawRectangle:
                 cv.rectangle(img,(ix,iy),(x,y),(0,255,0),-1)
             elif drawCircle:
-                cv.circle(img,(ix,iy),int(math.sqrt(pow(x-ix,2)+pow(y-iy,2))),(255,0,0),-1)
+                r = math.sqrt(pow(x-ix,2)+pow(y-iy,2))
+                cv.circle(img,(ix,iy),int(r),(255,0,0),-1)
             else:
                 cv.circle(img,(x,y),5,(0,0,255),-1)
     elif event == cv.EVENT_LBUTTONUP:
@@ -27,7 +28,8 @@ def draw_circle(event,x,y,flags,param):
         if drawRectangle:
             cv.rectangle(img,(ix,iy),(x,y),(0,255,0),-1)
         elif drawCircle:
-            cv.circle(img,(ix,iy),int(math.sqrt(pow(x-ix,2)+pow(y-iy,2))),(255,0,0),-1)
+            r = math.sqrt(pow(x-ix,2)+pow(y-iy,2))
+            cv.circle(img,(ix,iy),int(r),(255,0,0),-1)
         else:
             cv.circle(img,(x,y),5,(0,0,255),-1)
 
