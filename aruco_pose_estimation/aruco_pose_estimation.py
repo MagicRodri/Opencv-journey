@@ -33,10 +33,13 @@ We are going to obtain the following quantities:
 
 """
 
-import numpy as np
+import math
+import sys
+import time
+
 import cv2
 import cv2.aruco as aruco
-import sys, time, math
+import numpy as np
 
 #--- Define Tag
 id_to_find  = 1
